@@ -1,0 +1,132 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Quokka",
+    "patterns": [
+        {"include": "#strings"},
+        {"include": "#rawstrings"},
+		{"include": "#inlinecode"},
+        {"include": "#linecomments"},
+        {"include": "#greyopers"},
+		{"include": "#greywords"},
+        {"include": "#booleans"},
+        {"include": "#integers"},
+		{"include": "#declaration"},
+        {"include": "#variables"},
+        {"include": "#functiondefs"},
+		{"include": "#forloops"},
+        {"include": "#imports"},
+		{"include": "#keywords"},
+        {"include": "#types"}
+    ],
+    "repository": {
+        "strings": {
+            "name": "string.quoted.double.bfb",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [{
+                "name": "constant.character.escape.bfb",
+                "match": "\\\\."
+            }]
+        },
+        "rawstrings": {
+            "name": "string.quoted.double.bfb",
+            "begin": "'",
+            "end": "'",
+            "patterns": [{
+                "name": "constant.character.escape.bfb",
+                "match": "\\\\."
+            }]
+        },
+		"inlinecode": {
+            "name": "comment.bfb",
+            "begin": "`",
+            "end": "`"
+        },
+        "linecomments": {
+            "patterns": [{
+                "name": "comment.bfb",
+                "match": "<>.*"
+            }]
+        },
+        "greyopers": {
+            "patterns": [{
+                "name": "keyword.bfb",
+                "match": "(\\+|\\-|\\*|/|\\?|\\!|~|:|<|>|\\^|%|&|=|\\|)"
+            }]
+        },
+		"greywords": {
+			"patterns": [{
+				"name": "keyword.bfb",
+				"match": "\\b(not|and|or)\\b"
+			}]
+		},
+        "booleans": {
+            "patterns": [{
+                "name": "constant.language.bfb",
+                "match": "\\b(true|false|null)\\b"
+            }]
+        },
+        "integers": {
+            "patterns": [{
+                "name": "constant.numeric.bfb",
+                "match": "\\b(-|\\+)*[0-9]+\\b"
+            }]
+        },
+		"declaration": {
+			"name": "function.bfb",
+            "begin": "\\b(dec) +(\\w+)",
+            "end": "( |\\b)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.bfb"}
+            }
+		},
+        "variables": {
+            "name": "function.bfb",
+            "begin": "\\b([\\w\\.]+) *(=|\\+=|\\-=|\\*=|/=|\\*\\*=|%=|\\&=|\\|=)[\\w\\b ]+",
+            "end": "( |\\b)",
+            "beginCaptures": {
+                "1": {"name": "constant.numeric.bfb"},
+                "2": {"name": "keyword.bfb"}
+            }
+        },
+        "functiondefs": {
+            "name": "function.bfb",
+            "begin": "\\b(sub|def|fun) +([\\w\\.]+)",
+            "end": "\\b",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.bfb"},
+                "2": {"name": "entity.name.function.bfb"}
+            }
+        },
+		"forloops": {
+			"name": "function.bfb",
+            "begin": "\\b(for)( |\\()+(\\w*);(\\w*);(\\w*)",
+            "end": "( |\\b)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.bfb"}
+            }
+		},
+        "imports": {
+            "name": "import.bfb",
+            "begin": "(include|import) +(['\"]*)([\\w\\.]+)(['\"]*)\\b",
+            "end": "(.|\\b)",
+            "beginCaptures": {
+                "1": {"name": "keyword.control.bfb"},
+                "3": {"name": "constant.numeric.bfb"}
+            }
+        },
+		"keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.bfb",
+                    "match": "\\b(if|elif|else|while|for|ret|return|include|import)\\b"
+                },
+                {
+                    "name": "keyword.control.bfb",
+                    "match": "\\b(print|printnum|println|printstr|input|addr)\\b"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.bfb"
+}
