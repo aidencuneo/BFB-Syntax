@@ -10,6 +10,9 @@
     "categories": [
         "Programming Languages"
     ],
+    "repository": {
+        "url": "https://github.com/aidencuneo/BFB-Syntax"
+    },
     "contributes": {
         "languages": [{
             "id": "bfb",
