@@ -11,9 +11,8 @@
         {"include": "#booleans"},
         {"include": "#integers"},
 		{"include": "#declaration"},
-        {"include": "#variables"},
+        {"include": "#forloops"},
         {"include": "#functiondefs"},
-		{"include": "#forloops"},
         {"include": "#imports"},
 		{"include": "#keywords"},
         {"include": "#types"}
@@ -80,15 +79,14 @@
                 "1": {"name": "keyword.control.bfb"}
             }
 		},
-        "variables": {
-            "name": "function.bfb",
-            "begin": "\\b([\\w\\.]+) *(=|\\+=|\\-=|\\*=|/=|\\*\\*=|%=|\\&=|\\|=)[\\w\\b ]+",
+        "forloops": {
+			"name": "function.bfb",
+            "begin": "\\b(for)( |\\()+(\\w*);(\\w*);(\\w*)",
             "end": "( |\\b)",
             "beginCaptures": {
-                "1": {"name": "constant.numeric.bfb"},
-                "2": {"name": "keyword.bfb"}
+                "1": {"name": "keyword.control.bfb"}
             }
-        },
+		},
         "functiondefs": {
             "name": "function.bfb",
             "begin": "\\b(sub|def|fun) +([\\w\\.]+)",
@@ -98,14 +96,6 @@
                 "2": {"name": "entity.name.function.bfb"}
             }
         },
-		"forloops": {
-			"name": "function.bfb",
-            "begin": "\\b(for)( |\\()+(\\w*);(\\w*);(\\w*)",
-            "end": "( |\\b)",
-            "beginCaptures": {
-                "1": {"name": "keyword.control.bfb"}
-            }
-		},
         "imports": {
             "name": "import.bfb",
             "begin": "(include|import) +(['\"]*)([\\w\\.]+)(['\"]*)\\b",

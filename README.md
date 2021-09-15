@@ -18,3 +18,9 @@ First proper version of BFB Syntax.
 ### 1.0.1
 
 Bug fixes :)
+
+### 1.0.2
+
+Fixed a bug where for loops would have some whacky highlighting inside their
+declarations. Also removed variable syntax highlighting (eg: x = 5) because
+it felt kind of pointless and it was messing up other things anyway.
