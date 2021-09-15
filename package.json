@@ -2,7 +2,7 @@
     "name": "bfb-syntax",
     "displayName": "BFB Syntax",
     "description": "",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "aidencuneo",
     "engines": {
         "vscode": "^1.60.0"
